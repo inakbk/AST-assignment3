@@ -74,27 +74,27 @@
 
 \section{The isothermal density profile}
 
-The second order differential equation for $\rho(r)$ from the lecture notes is given by:
+The second order differential equation for the density of the dark matter, $\rho(r)$ is given by:
 
 \begin{equation}
-\frac{k_bT}{m_{DM}r^2} \frac{d}{dr}r^2 \frac{d}{dr} \ln \rho(r) = 4\pi G\rho(r)
+-\frac{k_bT}{m_{DM}r^2} \frac{d}{dr}r^2 \frac{d}{dr} \ln \rho(r) = 4\pi G\rho(r)
 \label{eq:DE}
 \end{equation}
 
-\textbf{Exercise:}  Show that $\rho(r) = \frac{A}{r^2}$, $A=\frac{k_bT}{2\pi Gm_{DM}}$ (the isothermal density profile) is a solution to the DE.\\
+\textbf{Exercise:}  Show that $\rho(r) = \frac{A}{r^2}$, $A=\frac{k_bT}{2\pi Gm_{DM}}$ (the isothermal density profile) is a solution to the DE (that the DM settles into an isothermal density profile).\\
 
 \textbf{Solution:} Rewriting the DE
 \begin{align*}
-\frac{k_bT}{2\pi gm_{DM}} \frac{1}{r^2} \frac{d}{dr}r^2 \frac{d}{dr} \ln \rho(r) = \frac{A}{r^2} \frac{d}{dr}r^2 \frac{d}{dr} \ln \rho(r) = 2\rho(r)
+-\frac{k_bT}{2\pi gm_{DM}} \frac{1}{r^2} \frac{d}{dr}r^2 \frac{d}{dr} \ln \rho(r) = -\frac{A}{r^2} \frac{d}{dr}r^2 \frac{d}{dr} \ln \rho(r) = 2\rho(r)
 \end{align*}
 
 Inserting the solution into the LHS of the DE:
 \begin{align*}
-\frac{A}{r^2} \frac{d}{dr}r^2 \frac{d}{dr} \ln \Bigg(\frac{A}{r^2} \Bigg) &=  \frac{A}{r^2} \frac{d}{dr}r^2 \frac{d}{dr} \Bigg( \ln A - \ln r^2 \Bigg) \\
-&= -\frac{A}{r^2} \frac{d}{dr}r^2 \frac{d}{dr} \Bigg( 2 \ln r \Bigg) \\
-&= -\frac{2A}{r^2} \frac{d}{dr}r^2 \cdot \frac{1}{r} \\
-&= -\frac{2A}{r^2} \frac{d}{dr}r \\
-&= -\frac{2A}{r^2} 
+-\frac{A}{r^2} \frac{d}{dr}r^2 \frac{d}{dr} \ln \Bigg(\frac{A}{r^2} \Bigg) &=  -\frac{A}{r^2} \frac{d}{dr}r^2 \frac{d}{dr} \Bigg( \ln A - \ln r^2 \Bigg) \\
+&= \frac{A}{r^2} \frac{d}{dr}r^2 \frac{d}{dr} \Bigg( 2 \ln r \Bigg) \\
+&= \frac{2A}{r^2} \frac{d}{dr}r^2 \cdot \frac{1}{r} \\
+&= \frac{2A}{r^2} \frac{d}{dr}r \\
+&= \frac{2A}{r^2} 
 \end{align*}
 
 Inserting the solution into the RHS of the DE:
@@ -104,39 +104,71 @@ Inserting the solution into the RHS of the DE:
 
 \textbf{$\Rightarrow$ The LHS is equal to the RHS so that $\rho(r) = \frac{A}{r^2}$ is a solution to the DE.} \\
 
-Gas in hydrostatic equilibrium with gravity is described by:
+Gas (baryons) in hydrostatic equilibrium with gravity is described by:
 \begin{equation}
-\frac{dP}{dr} = -\frac{GM(<r) \rho(r)}{r^2}
+\frac{dP}{dr} = -\frac{GM(<r) \rho_b(r)}{r^2}
 \label{eq:hyd_eq}
 \end{equation}
+where the pressure $P$ is given by the baryons only, since the DM is pressureless. The right hand side is describing the gravitational pull from $M(<r)$, both the baryons and the DM, on the baryons $\rho_b$. \\
 
-\textbf{Exercise:} Show that an isothermal gas (obeying equation \ref{eq:hyd_eq}) settles into a similar state (as in equation \ref{eq:DE}).\\
+\textbf{Exercise:} Show that an isothermal gas (obeying equation \ref{eq:hyd_eq}) settles into a similar state (same density profile as the DM).\\
 
-\textbf{Solution:} If the gas is isothermal (it has the same temperature everywhere) then the pressure is given by
+\textbf{Solution:} We want to show that the baryons settle into the same density profile as the DM, we want to show that
 \begin{align*}
-P = nk_bT_0 = \frac{\rho}{m_p}k_bT_0
+\rho_b(r) = \frac{B}{r^2}
+\end{align*}
+gives a solution to equation \ref{eq:hyd_eq}, where $B$ is a constant. If the gas is isothermal (it has the same temperature $T_0$ everywhere) then the pressure of the baryons are given by
+\begin{align*}
+P = nk_bT_0 = \frac{\rho_b}{m_p}k_bT_0 = \frac{k_bT_0B}{m_pr^2}
+\end{align*}
+giving the LHS:
+
+\begin{align*}
+\frac{d}{dr} \frac{k_bT_0B}{m_pr^2} = \frac{k_bT_0B}{m_p} \cdot -2r^{-3} = -\frac{2k_bT_0B}{m_pr^3}  
 \end{align*}
 
-We use the definition
+The total mass enclosed in the sphere is given by the integral
 \begin{align*}
-M(<r) = 4\pi \int_0^r x^2 \rho (x) dx
+M(<r) &= 4\pi \int_0^r x^2 \rho_{tot} (x) dx = 4\pi \int_0^r x^2 \bigg(\rho_b(x) + \rho_{DM}(x)\bigg) dx \\
+&= 4\pi \int_0^r x^2 \Bigg(\frac{B}{x^2} + \frac{A}{x^2}\Bigg) dx = 4\pi (A+B)r
 \end{align*}
-and insert into equation \ref{eq:hyd_eq} to obtain the DE given in equation \ref{eq:DE}
+so that the RHS becomes:
 \begin{align*}
-\frac{d}{dr}\Bigg( \frac{k_bT}{m_p} \rho(r) \Bigg) &= -\frac{G\rho(r)}{r^2} \cdot 4\pi \int_0^r x^2 \rho (x) dx \\
-\frac{k_bT}{m_p} \cdot \frac{r^2}{\rho(r)} \frac{d}{dr}  \rho(r)  &= - 4\pi G \int_0^r x^2 \rho (x) dx \\
-\frac{d}{dr} \Bigg( \frac{k_bT}{m_p} \cdot \frac{r^2}{\rho(r)} \frac{d}{dr}  \rho(r) \Bigg)  &= \frac{d}{dr} \Bigg( - 4\pi G \int_0^r x^2 \rho (x) dx \Bigg) \\
-\frac{k_bT}{m_p} \cdot \frac{d}{dr} \frac{r^2}{\rho(r)} \frac{d}{dr}  \rho(r) &= - 4\pi G  r^2 \rho (r)  \\
-\frac{k_bT}{m_pr^2} \cdot \frac{d}{dr} r^2 \frac{d}{dr} \ln \rho(r) &= - 4\pi G  \rho (r)  \\
+-\frac{GM(<r)\rho_b(r)}{r^2} = -\frac{G\cdot  4\pi (A+B)r \cdot \frac{B}{r^2}}{r^2} = -\frac{4\pi G(A+B)B}{r^3}
 \end{align*}
-where $\frac{d}{dr} \ln \rho(r) = \frac{1}{\rho(r)}\frac{d}{dr}\rho(r)$ is used in the last step. \textbf{This is the same DE as in equation \ref{eq:DE} which means that an isothermal gas in hydrostatic equilibrium with gravity settles into the same isothermal density profile as derived for the dark matter when it is assumed that the DM particles have the same velocity distrubution/temperature (?) everywhere in space. }
-
+setting the LHS equal to the RHS:
+\begin{align*}
+-\frac{2k_bT_0B}{m_pr^3} &= -\frac{4\pi G(A+B)B}{r^3} \\
+\Rightarrow \frac{k_bT_0}{m_p} &= 2\pi G(A+B) \\
+\Rightarrow  B &= \frac{k_bT_0}{2\pi G m_p} - A 
+\end{align*}
+\textbf{The baryons settle into the isothermal density profile if $B$ has the value given above, and that the DM also follows an isothermal density profile. }
 
 %----------------------------------------------------------------------------------------
 %	PROBLEM 2
 %----------------------------------------------------------------------------------------
 
 \section{The Ly$\alpha$ forest}
+
+\textbf{Exercise:} Compute the Jeans length in the ionized IGM as a function of redshift. Assume $T_{IGM} = 10^4$K. What value of $k$ does this correspond to?
+
+\textbf{Solution:} The Jeans mass and length is given by:
+\begin{align*}
+M_J &= \frac{4\pi}{3} \Bigg( \frac{\lambda_J}{2} \Bigg)^3 \rho_b = \frac{\pi^{5/2}}{6G^{3/2}\rho_b^{1/2}} \Bigg( \frac{k_bT}{\mu m_p} \Bigg)^{3/2} \\
+\Bigg( \frac{\lambda_J}{2} \Bigg)^3 &= \frac{3}{4\pi}\frac{1}{\rho_b} \cdot \frac{\pi^{5/2}}{6G^{3/2}\rho_b^{1/2}} \Bigg( \frac{k_bT}{\mu m_p} \Bigg)^{3/2} \\
+&= \frac{\pi^{3/2}}{8G^{3/2}\rho_b^{3/2}} \Bigg( \frac{k_bT}{\mu m_p} \Bigg)^{3/2} = \frac{1}{8} \Bigg(\frac{\pi}{G\rho_b}  \frac{k_bT}{\mu m_p} \Bigg)^{3/2}  \\
+\lambda_J &= 2\cdot \Bigg( \frac{1}{8} \Bigg)^{1/3} \Bigg( \frac{\pi k_bT}{G\rho_b\mu m_p} \Bigg)^{1/2}
+\end{align*}
+
+from the lecture notes we know that
+\begin{align*}
+\bar{n}_H \approx 2 \cdot 10^{-7} (1 + z)^3 \mathrm{cm}^{-3}
+\end{align*}
+and that
+\begin{align*}
+\bar{n}_H  = f_H\frac{\rho_p}{m_p} = 0.76 \frac{\rho_b}{m_p} \Rightarrow \rho_b = \frac{m_p}{0.76}\bar{n}_H 
+\end{align*}
+inserting the numbers gives the Jeans length:
 
 
 
